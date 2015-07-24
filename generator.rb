@@ -1,19 +1,20 @@
 class Generator
+  Suffixes = ['less', 'ness', 'ing', 'er', 're', 'tion', 'ly', 'tant','en', 'tic']
+  Vowels = ['a','e','i','o','u']
+  Consonants = ['b','c','d','f','g','h','k','l','m','n','p','q','r','s','t','v','w','z'] 
   def create
-    suffixes = ['less', 'ness', 'ing', 'er', 're', 'tion', 'ly', 'tant','en', 'tic']
-    vowels = ['a','e','i','o','u']
-    consonants = ['b','c','d','f','g','h','k','l','m','n','p','q','r','s','t','v','w','z'] 
     str = ""
-    while str.size <= rand(3..5)
-      str  << consonants[rand(consonants.size)] 
-      str << vowels[rand(vowels.size)]
+    puts "Enter length"
+    len = gets
+    while str.size <= len.to_i
+      str  << Consonants[rand(Consonants.size)] 
+      str << Vowels[rand(Vowels.size)]
     end
-    str << suffixes[rand(suffixes.size)]
+    str << Suffixes[rand(Suffixes.size)]
     str << rand(48..57)
     str << rand(48..57)
-    puts str
   end
 end
 
 gen = Generator.new
-gen.create
+puts gen.create
