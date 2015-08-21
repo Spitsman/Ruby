@@ -1,4 +1,5 @@
 require "httparty"
+require "nokogiri"
 
 class Dictionary
 	attr_accessor :api_key
@@ -13,6 +14,7 @@ class Dictionary
 		url << "&lang=#{options[0]}&text=#{options[1]}" unless options.empty?
 		response = HTTParty.get(url)
 		check_errors(response) unless response.code == 200
+		response
 	end
 
 	def get_langs
@@ -35,6 +37,26 @@ class Dictionary
 	end
 end
 
+class DictParser
+	def parse_get_langs(response)
+		response.to_s.scan(/..-../)
+	end
+	def parse_lookup(response)
+		doc = Nokogiri::XML(response.body)
+		arr = doc.xpath("//text")
+		newarr = arr.map do |str|
+			str.to_s.sub("<text>", "").sub("</text>", "")
+		end
+		newarr
+		
+	end
+end
+
+	
+
 dict = Dictionary.new('dict.1.1.20150814T100205Z.a0d27651d642b1d1.93ce6ba9cd891aada1fb98d47b6cd89c15a32f2e')
-dict.get_langs
-dict.lookup('en-ru', 'cat')
+response = dict.lookup("en-ru", "time")
+response2 = dict.get_langs
+puts Nokogiri::XML(response.body)
+parser = DictParser.new
+puts parser.parse_lookup(response)
