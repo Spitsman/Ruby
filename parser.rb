@@ -14,5 +14,6 @@ class DictParser
 	end
 	def func
 		[1,2,3]
+		puts 'zalupa'
 	end
 end
