@@ -32,9 +32,7 @@ module DictionaryAPI
 
     def build_url(path, options = {})
       request = BASE_URL + path + "?key=#{@api_key}"
-      unless options.empty?
-        options.each_pair { |key, value| request += '&' + key + '=' + value }
-      end
+      options.each_pair { |key, value| request += '&' + key + '=' + value }
       request
     end 
   end
