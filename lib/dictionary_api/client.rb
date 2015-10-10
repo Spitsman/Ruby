@@ -13,7 +13,7 @@ module DictionaryAPI
     end
 
     def execute(path, options = {})
-      response = HTTParty.get(self.build_url(path, options))    
+      response = HTTParty.post(self.build_url(path, options))    
       self.check_errors(response)
     end
 
