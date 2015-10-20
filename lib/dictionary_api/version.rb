@@ -1,3 +1,3 @@
-module DictionaryApi
-  VERSION = "0.1.0"
+module DictionaryAPI
+  VERSION = "0.1.12"
 end

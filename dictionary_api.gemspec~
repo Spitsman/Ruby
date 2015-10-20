@@ -5,7 +5,7 @@ require 'dictionary_api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "dictionary_api"
-  spec.version       = DictionaryAPI::VERSION
+  spec.version       = DictionaryApi::VERSION
   spec.authors       = ["spitsman"]
   spec.email         = ["sanspits@yandex.ru"]
 
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.2"
-  spec.add_dependency "httpclient", "~> 2.6", "~> 2.4"
-  spec.add_dependency "json", "~> 1.8"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "httparty"
+  spec.add_development_dependency "json"
 end
