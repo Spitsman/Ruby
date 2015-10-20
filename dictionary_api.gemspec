@@ -21,6 +21,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.2"
+<<<<<<< HEAD
   spec.add_dependency "httpclient", "~> 2.6", "~> 2.4"
+=======
+  spec.add_dependency "httparty", "~> 0.13"
+>>>>>>> 5b0163c7e4783932c0be52822d62054d4945dd2d
   spec.add_dependency "json", "~> 1.8"
 end
