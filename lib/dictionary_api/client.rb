@@ -4,8 +4,6 @@ module DictionaryAPI
 
 	class DictionaryAPI::Client
 
-		attr_accessor :api_key
-
 		BASE_URL = "https://dictionary.yandex.net/api/v1/dicservice.json/"
 
 		def execute(path, options = {})

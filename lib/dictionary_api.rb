@@ -13,12 +13,11 @@ module DictionaryAPI
 		end
 
 		def get_langs
-			JSON.parse client.execute('getLangs').body
+			JSON.parse client.execute('getLangs', {key: @api_key}).body
 		end
 
 		def lookup(lang, text)
-			text.gsub!(' ', '%20')
-			response= JSON.parse client.execute('lookup', {key: @api_key, lang: lang, text: text}).body
+			response = JSON.parse client.execute('lookup', {key: @api_key, lang: lang, text: text}).body
 			parser.parse(response)
 		end
 
